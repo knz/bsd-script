@@ -1,5 +1,8 @@
 LDFLAGS = -lutil
-all: script
+all: bsd-script
 
-script: script.o
+bsd-script: script.o
 	$(CC) -o $@ $< $(LDFLAGS)
+
+install: bsd-script
+	install -C bsd-script /usr/local/bin/bsd-script
